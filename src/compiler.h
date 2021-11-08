@@ -38,16 +38,6 @@
 #define always_unused
 #endif
 
-#if __has_attribute(__packed__)
-#define pack_struct		__attribute__((__packed__))
-#define pack_union		__attribute__((__packed__))
-#define pack_field		__attribute__((__packed__))
-#else
-#define pack_struct
-#define pack_union
-#define pack_field
-#endif
-
 #if __has_attribute(__format__)
 #define format(type, fmt, args)	__attribute__((__format__(type, fmt, args)))
 #else
