@@ -1,4 +1,6 @@
+
 #include "compiler.h"
+#include "bitops.h"
 
 int main(void)
 {
