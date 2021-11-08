@@ -4,6 +4,7 @@
 #include "byteops.h"
 #include "unaligned.h"
 #include "util.h"
+#include "list.h"
 
 int main(void)
 {
