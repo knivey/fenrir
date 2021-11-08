@@ -5,6 +5,7 @@
 #include "unaligned.h"
 #include "util.h"
 #include "list.h"
+#include "minmax.h"
 
 int main(void)
 {
