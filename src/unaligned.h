@@ -4,60 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "compiler.h"
 #include "byteops.h"
-
-#if __has_attribute(__packed__)
-
-static force_inline uint16_t get_unaligned_u16(const void *p)
-{
-	const struct {
-		uint16_t val;
-	} __attribute__((__packed__)) *packed = p;
-	return packed->val;
-}
-
-static force_inline uint32_t get_unaligned_u32(const void *p)
-{
-	const struct {
-		uint32_t val;
-	} __attribute__((__packed__)) *packed = p;
-	return packed->val;
-}
-
-static force_inline uint64_t get_unaligned_u64(const void *p)
-{
-	const struct {
-		uint64_t val;
-	} __attribute__((__packed__)) *packed = p;
-	return packed->val;
-}
-
-static force_inline void put_unaligned_u16(void *p, uint16_t val)
-{
-	struct {
-		uint16_t val;
-	} __attribute__((__packed__)) *packed = p;
-	packed->val = val;
-}
-
-static force_inline void put_unaligned_u32(void *p, uint32_t val)
-{
-	struct {
-		uint32_t val;
-	} __attribute__((__packed__)) *packed = p;
-	packed->val = val;
-}
-
-static force_inline void put_unaligned_u64(void *p, uint64_t val)
-{
-	struct {
-		uint64_t val;
-	} __attribute__((__packed__)) *packed = p;
-	packed->val = val;
-}
-
-#else /* __has_attribute(__packed__) */
 
 static force_inline uint16_t get_unaligned_u16(const void *p)
 {
@@ -97,8 +44,6 @@ static force_inline void put_unaligned_u64(void *p, uint64_t val)
 {
 	memcpy(p, &val, sizeof(val));
 }
-
-#endif /* __has_attribute(__packed__) */
 
 static inline uint16_t get_unaligned_le16(const void *p)
 {
