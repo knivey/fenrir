@@ -8,44 +8,52 @@
 
 #include "compiler.h"
 
-static force_inline uint8_t rol8(uint8_t x, size_t offset)
+static force_inline uint8_t rol8(uint8_t x, size_t count)
 {
-	return (x << (offset & 7)) | (x >> (-offset & 7));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x << (count & mask)) | (x >> (-count & mask));
 }
 
-static force_inline uint16_t rol16(uint16_t x, size_t offset)
+static force_inline uint16_t rol16(uint16_t x, size_t count)
 {
-	return (x << (offset & 15)) | (x >> (-offset & 15));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x << (count & mask)) | (x >> (-count & mask));
 }
 
-static force_inline uint32_t rol32(uint32_t x, size_t offset)
+static force_inline uint32_t rol32(uint32_t x, size_t count)
 {
-	return (x << (offset & 31)) | (x >> (-offset & 31));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x << (count & mask)) | (x >> (-count & mask));
 }
 
-static force_inline uint64_t rol64(uint64_t x, size_t offset)
+static force_inline uint64_t rol64(uint64_t x, size_t count)
 {
-	return (x << (offset & 63)) | (x >> (-offset & 63));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x << (count & mask)) | (x >> (-count & mask));
 }
 
-static force_inline uint8_t ror8(uint8_t x, size_t offset)
+static force_inline uint8_t ror8(uint8_t x, size_t count)
 {
-	return (x >> (offset & 7)) | (x << (-offset & 7));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x >> (count & mask)) | (x << (-count & mask));
 }
 
-static force_inline uint16_t ror16(uint16_t x, size_t offset)
+static force_inline uint16_t ror16(uint16_t x, size_t count)
 {
-	return (x >> (offset & 15)) | (x << (-offset & 15));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x >> (count & mask)) | (x << (-count & mask));
 }
 
-static force_inline uint32_t ror32(uint32_t x, size_t offset)
+static force_inline uint32_t ror32(uint32_t x, size_t count)
 {
-	return (x >> (offset & 31)) | (x << (-offset & 31));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x >> (count & mask)) | (x << (-count & mask));
 }
 
-static force_inline uint64_t ror64(uint64_t x, size_t offset)
+static force_inline uint64_t ror64(uint64_t x, size_t count)
 {
-	return (x >> (offset & 63)) | (x << (-offset & 63));
+	const size_t mask = CHAR_BIT * sizeof(x) - 1;
+	return (x >> (count & mask)) | (x << (-count & mask));
 }
 
 #if __has_builtin(__builtin_clzl)

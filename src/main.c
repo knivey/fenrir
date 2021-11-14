@@ -9,6 +9,7 @@
 #include "minmax.h"
 #include "stringlib.h"
 #include "ringbuf.h"
+#include "rbtree.h"
 
 int main(void)
 {
