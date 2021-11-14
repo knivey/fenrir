@@ -7,7 +7,7 @@
 #include "compiler.h"
 #include "bitops.h"
 
-#define ARRAY_LEN(x)	(sizeof(x) / sizeof((x)[0]))
+#define array_len(x)	(sizeof(x) / sizeof((x)[0]))
 
 #define container_of(ptr, type, field) \
 	((type *)((char *)(ptr) - offsetof(type, field)))

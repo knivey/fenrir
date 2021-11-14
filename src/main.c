@@ -1,3 +1,4 @@
+#include <stdio.h>
 
 #include "compiler.h"
 #include "bitops.h"
@@ -6,6 +7,7 @@
 #include "util.h"
 #include "list.h"
 #include "minmax.h"
+#include "stringlib.h"
 
 int main(void)
 {
