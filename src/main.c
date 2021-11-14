@@ -8,6 +8,7 @@
 #include "list.h"
 #include "minmax.h"
 #include "stringlib.h"
+#include "ringbuf.h"
 
 int main(void)
 {
