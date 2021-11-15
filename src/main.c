@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "compiler.h"
 #include "bitops.h"
@@ -9,7 +10,6 @@
 #include "minmax.h"
 #include "stringlib.h"
 #include "ringbuf.h"
-#include "rbtree.h"
 
 int main(void)
 {
